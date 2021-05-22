@@ -1,7 +1,9 @@
 package project.view.actions;
 
+import project.controller.AttributeController;
 import project.controller.Controller;
 import project.view.View;
+import project.view.CanvasView.NewView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,8 +17,8 @@ public class ExitAction extends AbstractAction
 	 * 
 	 */
 	private static final long	serialVersionUID	= 7049149677012029336L;
-	private View				    view;
-	private Controller			controller;
+	private NewView				    view;
+	private AttributeController			controller;
 
 	{
 		putValue(NAME, "Quit");
@@ -27,7 +29,7 @@ public class ExitAction extends AbstractAction
 
 	}
 
-	public ExitAction(View view, Controller controller)
+	public ExitAction(NewView view, AttributeController controller)
 	{
 		this.view = view;
 		this.controller = controller;
@@ -39,6 +41,6 @@ public class ExitAction extends AbstractAction
 				"Do you really want to quit?", "Exit",
 				JOptionPane.YES_NO_OPTION);
 		if (response == JOptionPane.YES_OPTION)
-			controller.exit(0);
+			controller.Exit(0);
 	}
 }

@@ -13,14 +13,13 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
 
-import javax.swing.event.MouseInputListener;
-
-public class DrawStandardAttribute extends DrawableAttribute implements MouseInputListener, Serializable {
+public class DrawStandardAttribute extends DrawableAttribute implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Ellipse2D __Circle;
 	private Line2D __ConnectingLine;
+	private DesignEnums __ChosenDesignEnum; 
 
 	private int __XPostion;
 	private int __YPostion;
@@ -33,6 +32,8 @@ public class DrawStandardAttribute extends DrawableAttribute implements MouseInp
 
 		__XPostion = 20;
 		__YPostion = 10;
+
+		SetDesignEnum(DesignEnums.Attribute);
 	}
 
 	public void paint(Graphics g) {
@@ -44,7 +45,9 @@ public class DrawStandardAttribute extends DrawableAttribute implements MouseInp
 		if (IsSelected()) {
 			g2d.setColor(Color.BLUE);
 			g2d.fill(__Circle);
+			SetCirclePosition();
 		}
+
 		if (IsForeignKey()) {
 			g2d.setColor(Color.black);
 			Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 2 }, 0);
@@ -98,13 +101,13 @@ public class DrawStandardAttribute extends DrawableAttribute implements MouseInp
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (__Selected) {
-			int dx = e.getX() - (int) __XPostion;
-			int dy = e.getY() - (int) __YPostion;
+		if (__Circle.getBounds().contains(e.getPoint())) {
+			int dx = e.getX() - __XPostion;
+			int dy = e.getY() - __YPostion;
 
 			Point2D ab = __ConnectingLine.getP1();
 			Rectangle2D bounds = __Circle.getBounds2D();
-			bounds.setFrame(new Rectangle2D.Double(dx + bounds.getX(), dy + bounds.getY(), bounds.getWidth(),
+			bounds.setFrame(new Rectangle2D.Double(dx + bounds.getX() - 4, dy + bounds.getY() - 4, bounds.getWidth(),
 					bounds.getHeight()));
 			__Circle.setFrame(bounds);
 			__Circle.getBounds().setLocation(e.getPoint());
@@ -126,6 +129,22 @@ public class DrawStandardAttribute extends DrawableAttribute implements MouseInp
 		int x = (int)__Circle.getBounds().getCenterX();
 		int y = (int)__Circle.getBounds().getCenterY();
 		return new Point(x,y);
+	}
+
+	private void SetCirclePosition() {
+		Rectangle2D bounds = __Circle.getBounds2D();
+        bounds.setFrame(new Rectangle2D.Double(__XPostion, __YPostion, bounds.getWidth(), bounds.getHeight()));
+        __Circle.setFrame(bounds);
+	}
+
+	@Override
+	public DesignEnums GetDesignEnum() {
+		return __ChosenDesignEnum;
+	}
+
+	@Override
+	public void SetDesignEnum(DesignEnums designEnums) {
+		__ChosenDesignEnum = designEnums;		
 	}
 
 }

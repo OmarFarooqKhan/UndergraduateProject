@@ -1,8 +1,10 @@
 package project;
 
+import project.controller.AttributeController;
 import project.controller.Controller;
 import project.model.Model;
 import project.view.View;
+import project.view.CanvasView.NewView;
 
 import javax.swing.*;
 
@@ -17,9 +19,14 @@ public class Main extends JFrame
 		{
 			public void run()
 			{
+				// Model model = new Model();
+				// Controller controller = new Controller(model);
+				// View view = new View(model, controller);
+				// view.setVisible(true);
+				
 				Model model = new Model();
-				Controller controller = new Controller(model);
-				View view = new View(model, controller);
+				AttributeController controller = new AttributeController(model);
+				NewView view = new NewView(model, controller);
 				view.setVisible(true);
 			}
 		});

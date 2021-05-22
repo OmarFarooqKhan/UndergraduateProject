@@ -15,7 +15,7 @@ import java.awt.event.MouseWheelEvent;
  * wheel mouse scroll vertically as before but, when combined with the shift
  * modifier, scrolls horizontally
  */
-class HVMouseWheelScrollPane extends JScrollPane
+public class HVMouseWheelScrollPane extends JScrollPane
 {
 
 	/**

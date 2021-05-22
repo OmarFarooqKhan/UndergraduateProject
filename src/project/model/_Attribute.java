@@ -19,6 +19,7 @@ public class _Attribute implements Serializable{
 	private String Type = "text";
 	private String id;
 	private List<_Attribute> identifiers;
+	
 	public _Attribute(String name,String ID) {
 		this.name = name;
 		this.setId(ID);

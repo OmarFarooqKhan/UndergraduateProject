@@ -8,6 +8,7 @@ public abstract class DrawableAttribute implements IDrawableObject, MouseInputLi
 	public boolean __ForeignKey = false;
 	public String __NameOfAttribute = "";
 	public boolean __Selected = false;
+	private DesignEnums __ChosenDesignEnum;
 
 	public boolean IsPrimaryKey() {
 		return __PrimaryKey;
@@ -39,5 +40,15 @@ public abstract class DrawableAttribute implements IDrawableObject, MouseInputLi
 
 	public void SetName(String name) {
 		__NameOfAttribute = name;
+	}
+
+	@Override
+	public DesignEnums GetDesignEnum() {
+		return __ChosenDesignEnum;
+	}
+
+	@Override
+	public void SetDesignEnum(DesignEnums designEnums) {
+		__ChosenDesignEnum = designEnums;		
 	}
 }

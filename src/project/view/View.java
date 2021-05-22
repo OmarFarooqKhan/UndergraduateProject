@@ -63,7 +63,7 @@ public class View extends JFrame
 		// exitAction has to be final because we reference it from within
 		// an inner class
 
-		final AbstractAction exitAction = new ExitAction(this, controller);
+		// final AbstractAction exitAction = new ExitAction(this, controller);
 		AbstractAction clearAction = new ClearAction(this,controller);
 		AbstractAction addEnt = new _AddEntAction(this,controller);
 		AbstractAction addRel = new _AddRelation(this,controller);
@@ -79,7 +79,7 @@ public class View extends JFrame
 		canvasToolbarMenu.setFloatable(false);
 		canvasToolbarMenu.add(Box.createRigidArea(new Dimension(10, 0)));
 
-		canvasToolbarMenu.add(exitAction).setBorder(new EmptyBorder(5, 0, 5, 0));
+		// canvasToolbarMenu.add(exitAction).setBorder(new EmptyBorder(5, 0, 5, 0));
 		canvasToolbarMenu.add(Box.createRigidArea(new Dimension(10, 0)));
 
 		canvasToolbarMenu.add(clearAction).setBorder(new EmptyBorder(5, 0, 5, 0));
@@ -95,16 +95,16 @@ public class View extends JFrame
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(new WindowAdapter()
 		{
-			public void windowClosing(WindowEvent we)
-			{
-				exitAction.actionPerformed(null);
-			}
+			// public void windowClosing(WindowEvent we)
+			// {
+			// 	exitAction.actionPerformed(null);
+			// }
 		});
 
 		// Set up the menu bar
 		JMenu fileMenu;
 		fileMenu = new JMenu("File");
-		fileMenu.add(exitAction);
+		// fileMenu.add(exitAction);
 		fileMenu.add(openAction);
 		fileMenu.add(saveAction);
 		fileMenu.add(genSQL);
@@ -120,7 +120,7 @@ public class View extends JFrame
 		toolBar = new JToolBar(null,JToolBar.VERTICAL);
 		toolBar.setFloatable(false);
 		toolBar.setRollover(true);
-		toolBar.add(exitAction).setBorder(new EmptyBorder(5, 0, 5, 0));
+		// toolBar.add(exitAction).setBorder(new EmptyBorder(5, 0, 5, 0));
 		toolBar.addSeparator();
 		toolBar.add(clearAction).setBorder(new EmptyBorder(5, 0, 5, 0));
 		toolBar.addSeparator();
