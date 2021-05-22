@@ -33,7 +33,7 @@ public class CanvasToolbar extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = -3026980696368980856L;
 
-	protected JTextField textArea;
+	public JTextField textArea;
 	Model model;
 	View view;
 	Controller controller;

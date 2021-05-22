@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 /**
  * User: Alan P. Sexton Date: 21/06/13 Time: 00:52
  */
-class CanvasMouseListener implements MouseInputListener
+public class CanvasMouseListener implements MouseInputListener
 
 {
 	Model model;

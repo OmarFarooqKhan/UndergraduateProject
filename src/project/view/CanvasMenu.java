@@ -9,7 +9,7 @@ import project.controller.Controller;
 public class CanvasMenu  extends JPanel {
 	
 	TopDownApproach td;
-	BottomUpApproach bu;
+	public BottomUpApproach bu;
 	
 	/**
 	 * 

@@ -30,7 +30,7 @@ public class _DrawAttribute implements MouseInputListener, Serializable {
 	/**
 	 * 
 	 */
-	Ellipse2D circle = new Ellipse2D.Double(20, 20, 20, 20);
+	public Ellipse2D circle = new Ellipse2D.Double(20, 20, 20, 20);
 	Line2D line = new Line2D.Double(10, 20, 50, 20);
 	private Color color = Color.BLACK;
 	private boolean pK = false;
@@ -165,7 +165,7 @@ public class _DrawAttribute implements MouseInputListener, Serializable {
 	public Line2D thisRect() {
 		return line;
 	}
-	private Point getMidpoint() {
+	private Point getMidpoint() { // CompIdentifier
 		int x = 0;
 		int y = 0;
 		

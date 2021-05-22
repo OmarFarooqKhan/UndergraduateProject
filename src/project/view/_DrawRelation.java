@@ -79,7 +79,7 @@ public class _DrawRelation extends Rectangle implements Serializable {
 		cons.add(e);
 	}
 	
-	protected void draw(Graphics g) {
+	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.rotate(-Math.PI/4, this.getCenterX(), this.getCenterY());
 		g2.setColor(Color.GRAY);
